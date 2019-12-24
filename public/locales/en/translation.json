@@ -1,0 +1,118 @@
+{
+  "auth": {
+    "email": "Email",
+    "errors": {
+      "auth/too-many-requests": "To many unsuccessful login attempts. Try again in a minute or use another authorization type",
+      "auth/invalid-email": "Invalid email",
+      "auth/user-disabled": "User disabled",
+      "auth/user-not-found": "User with this email not found",
+      "auth/wrong-password": "Wrong credentials"
+    },
+    "modal_auth/account_exists_text": "Email already used. You can login with: ",
+    "password": "Password",
+    "title": {
+      "sign_in": "Sign In",
+      "sign_up": "Sign Up",
+      "reset": "Reset Password"
+    }
+  },
+  "button": {
+    "add_folder": "Add Folder",
+    "back": "Back",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "edit": "Edit",
+    "execute": "Execute",
+    "export": "Export",
+    "ok": "Ok",
+    "import": "Import",
+    "to-signin": "Sign In",
+    "to-signup": "Sign Up",
+    "remove": "Remove",
+    "reset": "Reset Password",
+    "save": "Save",
+    "save_as": "Save As",
+    "submit": "Submit"
+  },
+  "form": {
+    "add_first_parameter": "Add First Parameter",
+    "auth": "Auth",
+    "auth_type": "Auth Type",
+    "body": "Body",
+    "code": "Code",
+    "cookies": "Cookies",
+    "custom": "Custom",
+    "default": "Default",
+    "disabled": "Disabled",
+    "env": "Environment",
+    "headers": "Headers",
+    "host": "Host",
+    "method": "Method",
+    "no_response_yet": "No Response Yet...",
+    "none": "None",
+    "parameters": "Parameters",
+    "path": "Path",
+    "proxy": "Proxy",
+    "pretty": "Pretty",
+    "raw": "Raw",
+    "preview": "Preview"
+  },
+  "field": {
+    "email": "Should be an email",
+    "is_required": "Is required"
+  },
+  "general": {
+    "add": "Add",
+    "are_you_sure": "Are you sure?",
+    "are_you_sure_delete_this_request": "Are you sure delete this request?",
+    "collection": "Collection",
+    "folder": "Folder",
+    "name": "Name",
+    "no_data": "No Data",
+    "or": "Or",
+    "request_name": "Request Name",
+    "yes": "Yes"
+  },
+  "header": {
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "request": "Metaman"
+  },
+  "import": {
+    "tabs": {
+      "file": "File",
+      "plain_json": "Plain JSON"
+    },
+    "import_title_text": "Click or drag file to this area to upload schema",
+    "import_subtitle_text": "Supports Postman Collection 2.1"
+  },
+  "sidebar": {
+    "collections": "Collections",
+    "contributors": "Contributors",
+    "delete_history": "Delete History",
+    "environments": "Environments",
+    "history": "History",
+    "import_collection": "Import Collection",
+    "new_collection": "New Collection",
+    "workspace": "Workspace"
+  },
+  "workspace": {
+    "add": "Create Workspace",
+    "env_created": "environment has been created",
+    "env_updated": "environment has been updated",
+    "errors": {
+      "email_not_in_contributors_list": "User with this email not included in this workspace",
+      "email_already_in_contributors_list": "User with this email already included in this workspace"
+    },
+    "messages": {
+      "user_added_to_contributors": "has been added to contributors list"
+    },
+    "add_env": "Create New Environment",
+    "no_env": "No Environment",
+    "update_env": "Update",
+    "value": "Value",
+    "variable": "Variable",
+    "search": "Workspace name..."
+  },
+  "workspace-view": "EN: Workspace"
+}

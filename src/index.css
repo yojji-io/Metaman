@@ -1,0 +1,34 @@
+/* @import "../node_modules/antd/dist/antd.css"; */
+@import '../node_modules/bootstrap-utilities/bootstrap-utilities.css';
+@import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
+
+.logo {
+  color: #fa8c16;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.ant-tabs.no-margin .ant-tabs-top-bar {
+  margin-bottom: 0;
+}
+
+.workspace-sider .ant-tabs-top-bar {
+  margin-bottom: 0;
+}
+
+.preview-container pre {
+  margin: 0;
+}
+
+/** CSS Utils */
+.color-white {
+  color: #fff;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}

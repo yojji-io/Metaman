@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+  function loggedIn () {
+  	return request.auth != null
+  	    && request.auth.uid != null
+  }
+
+  function isContributor (workspaceID) {
+    return request.auth.token.email in get(/databases/$(database)/documents/workspaces/$(workspaceID)).data.contributors;
+  }
+
+  function isValidWorkspaceData () {
+    return request.resource.data.keys().hasAll(['name', 'contributors', 'envs'])
+        && request.resource.data.name is string
+        && request.resource.data.contributors.hasAny([request.auth.token.email])
+  }
+
+  function isValidCollectionData() {
+    return request.resource.data.keys().hasAll(['name'])
+        && request.resource.data.name is string
+  }
+
+  function isValidFolderData() {
+    return request.resource.data.keys().hasAll(['name'])
+        && request.resource.data.name is string
+  }
+
+  function isValidRequestData() {
+    return request.resource.data.keys().hasAll(['name', 'config'])
+        && request.resource.data.name is string
+        && request.resource.data.config.keys().hasAll(['baseURL', 'data', 'headers', 'method', 'params'])
+  }
+
+    match /workspaces/{workspaceID} {
+        allow list: if loggedIn();
+        allow get: if loggedIn() && isContributor(workspaceID)
+        allow create: if loggedIn() && isValidWorkspaceData();
+        allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name', 'contributors', 'envs']);
+        allow delete: if loggedIn() && isContributor(workspaceID);
+
+        match /collections/{collectionID} {
+            allow read: if loggedIn() && isContributor(workspaceID);
+            allow create: if loggedIn() && isContributor(workspaceID) && isValidCollectionData();
+            allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name']);
+            allow delete: if loggedIn() && isContributor(workspaceID);
+
+            match /requests/{requestID} {
+                allow read: if loggedIn() && isContributor(workspaceID);
+                allow create: if loggedIn() && isContributor(workspaceID) && isValidRequestData();
+                allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name', 'config']);
+                allow delete: if loggedIn() && isContributor(workspaceID);
+            }
+
+            match /folders/{folderID} {
+                allow read: if loggedIn() && isContributor(workspaceID);
+                allow create: if loggedIn() && isContributor(workspaceID) && isValidFolderData();
+                allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name']);
+                allow delete: if loggedIn() && isContributor(workspaceID);
+
+                match /requests/{wrappedRequestID} {
+                    allow read: if loggedIn() && isContributor(workspaceID);
+                    allow create: if loggedIn() && isContributor(workspaceID) && isValidRequestData();
+                    allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name', 'config']);
+                    allow delete: if loggedIn() && isContributor(workspaceID);
+                }
+            }
+        }
+    }
+  }
+}

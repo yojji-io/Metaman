@@ -1,0 +1,118 @@
+{
+  "auth": {
+    "email": "Почта",
+    "errors": {
+      "auth/too-many-requests": "Киличество попыток авторизации привышено. Попробуйте ещё раз через минуту или воспользуйтесь другим способом авторизации",
+      "auth/invalid-email": "Адрес почты не валиден",
+      "auth/user-disabled": " Пользователь заблокирован",
+      "auth/user-not-found": "Пользователь с такой почтой не найден",
+      "auth/wrong-password": "Неверный логин или пароль"
+    },
+    "modal_auth/account_exists_text": "Пользователь с такой почтой уже используется. Вы можете войти через ",
+    "password": "Пароль",
+    "title": {
+      "sign_in": "Вход",
+      "sign_up": "Регистрация",
+      "reset": "Сброс Пароля"
+    }
+  },
+  "button": {
+    "add_folder": "Добавить Папку",
+    "back": "Назад",
+    "cancel": "Отмена",
+    "clear": "Очистить",
+    "edit": "Редактировать",
+    "execute": "Выполнить",
+    "export": "Экспортировать",
+    "ok": "Ok",
+    "import": "Импорт",
+    "to-signin": "Вход",
+    "to-signup": "Регистрация",
+    "remove": "Удалить",
+    "reset": "Сброс Пароля",
+    "save": "Сохранить",
+    "save_as": "Сохранить Как",
+    "submit": "Подтвердить"
+  },
+  "form": {
+    "add_first_parameter": "Добавить Первый Параметр",
+    "auth": "Авторизация",
+    "auth_type": "Тип Авторизации",
+    "body": "Тело Запроса",
+    "code": "Код",
+    "cookies": "Куки",
+    "custom": "Указать URL",
+    "default": "По Умолчанию",
+    "disabled": "Отключен",
+    "env": "Окружение",
+    "headers": "Заголовки",
+    "host": "Хост",
+    "method": "Метод",
+    "no_response_yet": "Ответ не получен...",
+    "none": "Отключён",
+    "parameters": "Парраметры",
+    "path": "Путь",
+    "proxy": "Прокси",
+    "pretty": "Отформатированный",
+    "raw": "Неотформатированный",
+    "preview": "Предпросмотр"
+  },
+  "field": {
+    "email": "Поле должно содержать почту",
+    "is_required": "Обязательное поле"
+  },
+  "general": {
+    "add": "Добавить",
+    "are_you_sure": "Вы уверены?",
+    "are_you_sure_delete_this_request": "Вы уверены что хотите удалть этот запрос?",
+    "collection": "Коллекция",
+    "folder": "Папка",
+    "name": "Имя",
+    "no_data": "Нет Данных",
+    "or": "Или",
+    "request_name": "Имя запроса",
+    "yes": "Да"
+  },
+  "header": {
+    "dashboard": "Главное Меню",
+    "logout": "Выход",
+    "request": "Metaman"
+  },
+  "import": {
+    "tabs": {
+      "file": "Файл",
+      "plain_json": "Простой JSON"
+    },
+    "import_title_text": "Нажмите на кнопку или перетяните файл что бы добавить коллекцию",
+    "import_subtitle_text": "Поддерживает Postman Collection 2.1"
+  },
+  "sidebar": {
+    "collections": "Коллекции",
+    "contributors": "Участники",
+    "delete_history": "Удалить Историю",
+    "environments": "Окружения",
+    "history": "История",
+    "import_collection": "Импорт",
+    "new_collection": "Создать",
+    "workspace": "Проект"
+  },
+  "workspace": {
+    "add": "Создать Проект",
+    "env_created": "окружение было создано",
+    "env_updated": "окружение обновлено",
+    "errors": {
+      "email_not_in_contributors_list": "Пользователь с такой почтой не состоит в этом проекте",
+      "email_already_in_contributors_list": "Пользователь с такой почтой уже добавлен в проект"
+    },
+    "messages": {
+      "user_added_to_contributors": "был добавлен в список участников"
+    },
+    "add_env": "Создать окружение",
+    "no_env": "Не выбрано",
+    "update_env": "Изменить",
+    "value": "Ключ",
+    "variable": "Значение",
+    "search": "Имя Проекта..."
+  },
+  "workspace-view": "RU: Workspace"
+}

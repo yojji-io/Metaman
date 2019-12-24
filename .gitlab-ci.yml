@@ -1,0 +1,27 @@
+image: node:dubnium
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - CI=false npm run build
+  only:
+    - master
+  artifacts:
+    paths:
+      - build/
+
+deploy_stage:
+  stage: deploy
+  image: google/cloud-sdk:latest
+  only:
+    - master
+  script:
+    - touch ./service-account.json
+    - echo $SERVICE_ACCOUNT >> ./service-account.json
+    - gcloud auth activate-service-account --key-file=./service-account.json
+    - gsutil cp -r build/** gs://metaman.yojji.io
