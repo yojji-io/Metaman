@@ -32,5 +32,6 @@ src/config/firebase-client.config.js
 #ide
 /.idea
 /.vscode
+dist
 
 package-json.lock
