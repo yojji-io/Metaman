@@ -1,41 +1,24 @@
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+const serve = require('electron-serve');
 
 const path = require('path');
 const isDev = require('electron-is-dev');
 
+const loadURL = serve({directory: 'build'});
+
+
 let mainWindow;
 
-function createWindow() {
-  mainWindow = new BrowserWindow({
-    width: 900,
-    height: 680,
-    webPreferences: { webSecurity: false },
-  });
-  mainWindow.loadURL(
-    isDev
-      ? 'http://localhost:3000'
-      : `file://${path.join(__dirname, '../build/index.html')}`
-  );
-  if (isDev) {
-    // Open the DevTools.
-    //BrowserWindow.addDevToolsExtension('<location to your react chrome extension>');
-    mainWindow.webContents.openDevTools();
-  }
-  mainWindow.on('closed', () => (mainWindow = null));
-}
+(async () => {
+    await app.whenReady();
 
-app.on('ready', createWindow);
+    mainWindow = new BrowserWindow();
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow();
-  }
-});
+    if (!isDev) {
+      await loadURL(mainWindow);
+    } else {
+      mainWindow.loadURL('http://localhost:3000')
+    }
+})();
