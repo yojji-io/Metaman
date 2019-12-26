@@ -90,8 +90,6 @@ docker-compose up
 - start the firestore emulator `firebase emulators:start --only firestore`. 
 - run test `test:fb-rules`.
 
-Launches the test runner in the interactive watch mode.<br />
-
 ## Releasing
 
 Build the project
