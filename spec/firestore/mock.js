@@ -61,11 +61,12 @@ const foldersMock = {
 
 module.exports.basic = {
   dbMock: workspaceMockData,
+  auth,
 };
 
 module.exports.data = {
   dbMock: { ...workspaceMockData, ...collectionsMock, ...foldersMock },
-  auth: auth,
+  auth,
 };
 
 module.exports.constants = {

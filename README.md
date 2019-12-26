@@ -54,8 +54,8 @@ Retrieve response from endpoint instantly.
 
 - `git clone <repository-url>`
 - `cd <project-folder>`
-- login to firebase (optional)
 - Install dependencies `yarn install`
+- login to firebase (optional)
 - Init new project `firebase init` . Choose the next options
   - Create a new project
 - After the project was created open it at the firestore console `https://console.firebase.google.com/project/<project-name>/overview`.
@@ -85,9 +85,10 @@ docker-compose up
 
 ## Testing
 
-```
-yarn test
-```
+### Firestore rules
+- set up emulator (optional) `firebase setup:emulators:firestore`.
+- start the firestore emulator `firebase emulators:start --only firestore`. 
+- run test `test:fb-rules`.
 
 Launches the test runner in the interactive watch mode.<br />
 

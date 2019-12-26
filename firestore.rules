@@ -35,7 +35,7 @@ service cloud.firestore {
 
     match /workspaces/{workspaceID} {
         allow list: if loggedIn();
-        allow get: if loggedIn() && isContributor(workspaceID)
+        allow get: if loggedIn() && isContributor(workspaceID);
         allow create: if loggedIn() && isValidWorkspaceData();
         allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name', 'contributors', 'envs']);
         allow delete: if loggedIn() && isContributor(workspaceID);
