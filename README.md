@@ -115,14 +115,21 @@ Build the project
 
 ```
 yarn electron-pack
->for mac
-
-yarn electron-builder build -l
->for linux
-
-yarn electron-builder build -w
->for windows
 ```
+
+> for mac
+
+```
+yarn electron-builder build -l
+```
+
+> for linux
+
+```
+yarn electron-builder build -w
+```
+
+> for windows
 
 You will find build artifacts in `dist` folder.
 
