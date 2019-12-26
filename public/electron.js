@@ -6,19 +6,21 @@ const serve = require('electron-serve');
 const path = require('path');
 const isDev = require('electron-is-dev');
 
-const loadURL = serve({directory: 'build'});
-
+const loadURL = serve({ directory: 'build' });
 
 let mainWindow;
 
 (async () => {
-    await app.whenReady();
+  await app.whenReady();
 
-    mainWindow = new BrowserWindow();
+  mainWindow = new BrowserWindow({
+    webPreferences: { webSecurity: false, allowRunningInsecureContent: false },
+  });
 
-    if (!isDev) {
-      await loadURL(mainWindow);
-    } else {
-      mainWindow.loadURL('http://localhost:3000')
-    }
+  if (!isDev) {
+    await loadURL(mainWindow);
+  } else {
+    await mainWindow.loadURL('http://localhost:3000');
+    mainWindow.maximize();
+  }
 })();
