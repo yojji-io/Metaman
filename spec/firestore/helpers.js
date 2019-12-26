@@ -1,8 +1,12 @@
 const firebase = require('@firebase/testing');
 const fs = require('fs');
+const uuidv4 = require('uuid/v4');
+
+const rules = fs.readFileSync('firestore.rules', 'utf8');
 
 module.exports.setup = async (auth, data) => {
-  const projectId = `rules-spec-${Date.now()}`;
+  const projectId = `rules-spec-${uuidv4()}`;
+  const adminApp = firebase.initializeAdminApp({ projectId }).firestore();
   const app = await firebase.initializeTestApp({
     projectId,
     auth,
@@ -12,14 +16,14 @@ module.exports.setup = async (auth, data) => {
 
   if (data) {
     for (const key in data) {
-      const ref = db.doc(key);
+      const ref = adminApp.doc(key);
       await ref.set(data[key]);
     }
   }
 
   await firebase.loadFirestoreRules({
     projectId,
-    rules: fs.readFileSync('firestore.rules', 'utf8'),
+    rules,
   });
 
   return db;

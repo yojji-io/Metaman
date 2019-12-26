@@ -47,6 +47,7 @@
     "build": "react-app-rewired build",
     "build:docker": "env-cmd -f .env.docker react-scripts build",
     "test": "react-app-rewired tests",
+    "test:fb-rules": "jest spec/firestore",
     "eject": "react-scripts eject",
     "format": "prettier --write \"src/**/*.+(js|jsx|json|yml|yaml|css)\"",
     "lint": "eslint src/**/*.js"
@@ -74,6 +75,7 @@
     "eslint-plugin-react": "^7.17.0",
     "faker": "^4.1.0",
     "jest": "^24.9.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "uuid": "^3.3.3"
   }
 }
