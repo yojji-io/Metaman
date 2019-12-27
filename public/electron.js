@@ -14,7 +14,11 @@ let mainWindow;
   await app.whenReady();
 
   mainWindow = new BrowserWindow({
-    webPreferences: { webSecurity: false, allowRunningInsecureContent: false },
+    webPreferences: {
+      webSecurity: false,
+      allowRunningInsecureContent: false,
+      nativeWindowOpen: true,
+    },
   });
 
   if (!isDev) {
