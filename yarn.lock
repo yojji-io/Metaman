@@ -4593,6 +4593,13 @@ ejs@^2.6.2:
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
+electron-better-ipc@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/electron-better-ipc/-/electron-better-ipc-0.7.0.tgz#da6c439933639954a889fe6109767c6aeaafca94"
+  integrity sha512-9gQOHoedFRdM/dQjKARTdxnTmdk/srecn0Ez89NOl8EsGwrpfKDQ4aN8mG6gFlgKL7SGFHZpeDBY+aiNh4+ECw==
+  dependencies:
+    serialize-error "^5.0.0"
+
 electron-builder@^21.2.0:
   version "21.2.0"
   resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-21.2.0.tgz#b68ec4def713fc0b8602654ce842f972432f50c5"
