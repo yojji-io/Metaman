@@ -9,11 +9,12 @@ import Root from './Root';
 import features from './modules';
 import * as serviceWorker from './serviceWorker';
 import { firebase, redux, i18n, fela, createServices } from './config';
+import { firebaseConfig } from './config/firebase-client.config';
 
 const { TextArea } = Input;
 
-async function bootstrap(firebaseConfig) {
-  const app = firebase(firebaseConfig);
+async function bootstrap(firebaseConfigObject) {
+  const app = firebase(firebaseConfigObject);
   const renderer = fela();
   const services = await createServices(features);
   const epic = combineEpics.apply(null, features.epics);
@@ -29,17 +30,41 @@ async function bootstrap(firebaseConfig) {
 
 const Initial = () => {
   const [bootstrapInfo, setBootstrap] = useState(null);
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState(
+    `{
+      "apiKey":"",
+      "appId":"",
+      "authDomain":"",
+      "databaseURL":"",
+      "measurementId":"",
+      "messagingSenderId":"",
+      "projectId":"",
+      "storageBucket":""
+    }`
+  );
 
   useEffect(() => {
-    window.ipcRenderer.send('onFetchConfig', 'ping');
-    window.ipcRenderer.on('setConfig', async (event, data) => {
-      console.log(data);
-      if (data.type !== 'error') {
-        const bootData = await bootstrap(data.data);
+    const isElectronMode = window && window.ipcRenderer;
+    if (isElectronMode) {
+      window.ipcRenderer.send('onFetchConfig', 'ping');
+      window.ipcRenderer.on('setConfig', async (event, data) => {
+        let dataObject;
+        if (typeof data !== 'object') {
+          dataObject = JSON.parse(data);
+        } else {
+          dataObject = data;
+        }
+
+        if (dataObject.type !== 'error') {
+          const bootData = await bootstrap(dataObject.data);
+          setBootstrap(bootData);
+        }
+      });
+    } else {
+      bootstrap(firebaseConfig).then(bootData => {
         setBootstrap(bootData);
-      }
-    });
+      });
+    }
   }, []);
 
   return !bootstrapInfo ? (
