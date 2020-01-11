@@ -61,7 +61,7 @@ let mainWindow;
       webSecurity: false,
       allowRunningInsecureContent: false,
       nativeWindowOpen: true,
-      nodeIntegration: false,
+      nodeIntegration: true,
       preload: __dirname + '/preload.js',
     },
   });
