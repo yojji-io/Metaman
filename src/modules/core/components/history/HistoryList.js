@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 const { Item } = List;
 
-export function HistoryList({ list, onRestore, onClear }) {
+export function HistoryList({ list, onRestore, onClear, onRemove }) {
   const { t } = useTranslation();
 
   return (
@@ -34,9 +34,14 @@ export function HistoryList({ list, onRestore, onClear }) {
         bordered={false}
         dataSource={list}
         itemLayout="vertical"
-        renderItem={record => (
+        renderItem={(record, index) => (
           <Item>
-            <HistoryRow record={record} onRestore={onRestore} />
+            <HistoryRow
+              record={record}
+              onRestore={onRestore}
+              onRemove={onRemove}
+              index={index}
+            />
           </Item>
         )}
       />
