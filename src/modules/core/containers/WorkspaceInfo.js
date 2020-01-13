@@ -21,7 +21,7 @@ export const WorkspaceInfoComponent = ({
   const [showModal, setShowModal] = useState(false);
   const [showEnvModal, setShowEnvModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const { name = '', contributors = [] } = workspaceData;
+  const { name = '', contributors = [], superAdmin = '' } = workspaceData;
   const listener = useMemo(
     () => ({
       doc: workspace,
@@ -52,6 +52,9 @@ export const WorkspaceInfoComponent = ({
   const removeContributor = email => {
     if (!contributors.includes(email)) {
       message.error(t('workspace.errors.email_not_in_contributors_list'));
+      return;
+    } else if (superAdmin === email) {
+      message.error(t('workspace.errors.super_admin_cant_be_deleted'));
       return;
     }
     const ref = getWorkspaceRefById(workspace);
