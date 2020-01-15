@@ -33,17 +33,21 @@ service cloud.firestore {
         && request.resource.data.config.keys().hasAll(['baseURL', 'data', 'headers', 'method', 'params'])
   }
 
+	function isSuperAdminExist(workspaceId) {
+		return request.resource.data.contributors.hasAll([get(/databases/$(database)/documents/workspaces/$(workspaceId)).data.superAdmin])
+	}
+
     match /workspaces/{workspaceID} {
         allow list: if loggedIn();
         allow get: if loggedIn() && isContributor(workspaceID)
         allow create: if loggedIn() && isValidWorkspaceData();
-        allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name', 'contributors', 'envs']);
+        allow update: if loggedIn() && isContributor(workspaceID) && isSuperAdminExist(workspaceID) && request.resource.data.keys().hasAny(['name', 'contributors', 'envs']);
         allow delete: if loggedIn() && isContributor(workspaceID);
 
         match /collections/{collectionID} {
             allow read: if loggedIn() && isContributor(workspaceID);
             allow create: if loggedIn() && isContributor(workspaceID) && isValidCollectionData();
-            allow update: if loggedIn() && isContributor(workspaceID) && request.resource.data.keys().hasAny(['name']);
+            allow update: if loggedIn() && isContributor(workspaceID)  && request.resource.data.keys().hasAny(['name']);
             allow delete: if loggedIn() && isContributor(workspaceID);
 
             match /requests/{requestID} {
