@@ -57,7 +57,7 @@ export function RequestFormComponent({
     form.resetFields();
   };
   const onExecuteFromEnterKey = e => {
-    if (e.which == 13) {
+    if (e.which === 13) {
       onExecute(values);
     }
   };
