@@ -56,9 +56,16 @@ export function RequestFormComponent({
     onClear(values);
     form.resetFields();
   };
-
+  const onExecuteFromEnterKey = e => {
+    if (e.which == 13) {
+      onExecute(values);
+    }
+  };
   return (
-    <Form style={{ minHeight: '100%' }} className="d-flex flex-column">
+    <Form
+      style={{ minHeight: '100%' }}
+      className="d-flex flex-column"
+      onKeyUp={onExecuteFromEnterKey}>
       <div className="flex-grow-0">
         <div className="d-flex">
           <ProxySelect onChange={onProxyChange} proxy={proxy} />
