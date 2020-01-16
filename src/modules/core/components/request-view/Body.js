@@ -34,7 +34,14 @@ export function Body({ response = false }) {
   const { t } = useTranslation();
 
   return (
-    <div className="p-2">
+    <div
+      className="p-2"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1,
+        alignContent: 'stretch',
+      }}>
       <div className="mb-2">
         <Group>
           <Button
@@ -54,7 +61,11 @@ export function Body({ response = false }) {
           </Button>
         </Group>
       </div>
-      <div className="preview-container">{view}</div>
+      <div
+        className="preview-container"
+        style={{ display: 'flex', height: '100%' }}>
+        {view}
+      </div>
     </div>
   );
 }

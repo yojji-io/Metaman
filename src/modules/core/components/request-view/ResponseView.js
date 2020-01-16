@@ -36,14 +36,27 @@ export function ResponseView({ response = false }) {
   if (!response || _.isEmpty(response) || response.loading) {
     return (
       <Spin spinning={response.loading || false} className="py-3">
-        <Empty description={t('form.no_response_yet')} />
+        <Empty className="mt-5" description={t('form.no_response_yet')} />
       </Spin>
     );
   }
 
   return (
-    <Tabs tabBarExtraContent={extra} className="no-margin">
-      <TabPane key="body" tab={t('form.body')}>
+    <Tabs
+      tabBarExtraContent={extra}
+      className="no-margin"
+      type="card"
+      style={{
+        display: 'flex',
+        flexGrow: 1,
+        flexDirection: 'column',
+        justifyContent: 'stretch',
+        position: 'relative',
+      }}>
+      <TabPane
+        key="body"
+        tab={t('form.body')}
+        style={{ display: 'flex', height: '100%', flexGrow: 1 }}>
         <Body response={response} />
       </TabPane>
       <TabPane className="px-3" key="headers" tab={t('form.headers')}>

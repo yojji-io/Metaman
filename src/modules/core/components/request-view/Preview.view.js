@@ -32,6 +32,7 @@ export function Preview({ result }) {
     <iframe
       sandbox="allow-same-origin"
       style={{
+        height: '100%',
         width: '100%',
         border: 'none' /** border: '1px solid #e7e7e7' */,
       }}
