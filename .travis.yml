@@ -3,7 +3,7 @@ node_js:
   - 'stable'
 cache: yarn
 
-warnings_are_errors: false
+WARNINGS_ARE_ERRORS: false
 
 install:
   - yarn install
