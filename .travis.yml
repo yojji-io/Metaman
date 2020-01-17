@@ -3,6 +3,8 @@ node_js:
   - 'stable'
 cache: yarn
 
+os: osx
+
 WARNINGS_ARE_ERRORS: false
 
 install:
