@@ -31,7 +31,6 @@ const history = createReducer(
       [workspace]: workspaceHistory({ history }, { workspace }).concat(rest),
     }),
     [ACTIONS.REMOVE_HISTORY_ROWS]: (history, { workspace, keys }) => {
-      console.log(history, workspace, keys);
       return {
         ...history,
         [workspace]: workspaceHistory({ history }, { workspace, keys }).filter(

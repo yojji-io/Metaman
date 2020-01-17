@@ -14,8 +14,6 @@ const removeBreakLines = (text = '') =>
   _.toString(text).replace(/(\r\n|\n|\r)/gm, '');
 // ipcMain
 
-// const pathToConfig = path.join(__dirname, '/client-config.json');s
-console.log('>>>>>>>>>', app.getPath('userData'));
 ipcMain.on('onFetchConfig', (event, arg) => {
   try {
     const config = fs.readFileSync(
