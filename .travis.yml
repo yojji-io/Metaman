@@ -9,7 +9,7 @@ install:
   - yarn install
 
 script:
-  - yarn electron-pack
+  - yarn run electron-pack
 # deploy:
 #   on:
 #     branch: master
