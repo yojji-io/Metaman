@@ -9,7 +9,7 @@ install:
   - yarn install
 
 script:
-  - yarn run electron-pack
+  - CI=false yarn electron-pack
 # deploy:
 #   on:
 #     branch: master
