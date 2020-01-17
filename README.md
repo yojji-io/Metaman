@@ -75,6 +75,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+## Running / Development for Desktop version
+
+```
+yarn electron-dev
+```
+
+Desktop version of application developed using [Electron](https://electronjs.org/), which make wrapper above the web application and allow using it on mac, windows or linux operating systems.
+
 ## Docker
 
 local run
@@ -99,6 +107,18 @@ yarn build
 ```
 
 You will find build artifacts in `build` folder.
+
+## Releasing of desktop version
+
+Build the project
+
+> yarn electron-pack `for mac`
+
+> yarn electron-builder build -l `for linux`
+
+> yarn electron-builder build -w `for windows`
+
+You will find build artifacts in `dist` folder.
 
 ## How to ❔
 

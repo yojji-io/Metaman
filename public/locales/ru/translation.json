@@ -102,7 +102,8 @@
     "env_updated": "окружение обновлено",
     "errors": {
       "email_not_in_contributors_list": "Пользователь с такой почтой не состоит в этом проекте",
-      "email_already_in_contributors_list": "Пользователь с такой почтой уже добавлен в проект"
+      "email_already_in_contributors_list": "Пользователь с такой почтой уже добавлен в проект",
+      "super_admin_cant_be_deleted": "Создатель рабочей области не может быть удален из списка участников"
     },
     "messages": {
       "user_added_to_contributors": "был добавлен в список участников"

@@ -65,6 +65,7 @@ function DashboardComponent({ firestore, workspaces, ...props }) {
     } else {
       delete data.id; // Workaround for Firestore saving
       data.contributors = [user.email];
+      data.superAdmin = user.email;
       firestore
         .add(paths.workspaces.all(), data)
         .then(() => setModal(false))

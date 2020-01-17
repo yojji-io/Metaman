@@ -102,7 +102,8 @@
     "env_updated": "environment has been updated",
     "errors": {
       "email_not_in_contributors_list": "User with this email not included in this workspace",
-      "email_already_in_contributors_list": "User with this email already included in this workspace"
+      "email_already_in_contributors_list": "User with this email already included in this workspace",
+      "super_admin_cant_be_deleted": "Super admin can't be deleted from contributors list"
     },
     "messages": {
       "user_added_to_contributors": "has been added to contributors list"

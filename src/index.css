@@ -32,3 +32,8 @@
 .text-uppercase {
   text-transform: uppercase;
 }
+
+.ant-tabs-content.ant-tabs-content-no-animated.ant-tabs-top-content.ant-tabs-card-content {
+  height: 100%;
+  display: flex;
+}

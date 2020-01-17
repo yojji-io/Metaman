@@ -56,9 +56,16 @@ export function RequestFormComponent({
     onClear(values);
     form.resetFields();
   };
-
+  const onExecuteFromEnterKey = e => {
+    if (e.which === 13) {
+      onExecute(values);
+    }
+  };
   return (
-    <Form style={{ minHeight: '100%' }} className="d-flex flex-column">
+    <Form
+      style={{ minHeight: '100%' }}
+      className="d-flex flex-column"
+      onKeyUp={onExecuteFromEnterKey}>
       <div className="flex-grow-0">
         <div className="d-flex">
           <ProxySelect onChange={onProxyChange} proxy={proxy} />
@@ -87,7 +94,10 @@ export function RequestFormComponent({
         />
       </div>
 
-      <Row className="flex-grow-1" style={{ minHeight: '100%' }} gutter={16}>
+      <Row
+        className="flex-grow-1"
+        style={{ minHeight: '100%', display: 'flex' }}
+        gutter={16}>
         <Col style={{ minHeight: '100%' }} span={8}>
           <Card
             style={{ minHeight: '100%' }}
@@ -131,8 +141,15 @@ export function RequestFormComponent({
         </Col>
         <Col span={16}>
           <Card
-            style={{ minHeight: '100%' }}
-            bodyStyle={{ padding: 0, minHeight: '100%' }}>
+            style={{ minHeight: '100%', display: 'flex', flexGrow: 1 }}
+            bodyStyle={{
+              display: 'flex',
+              padding: 0,
+              minHeight: '100%',
+              flexGrow: 1,
+              alignContent: 'stretch',
+              justifyContent: 'center',
+            }}>
             {renderResponse()}
           </Card>
         </Col>
