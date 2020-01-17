@@ -14,11 +14,14 @@ const removeBreakLines = (text = '') =>
   _.toString(text).replace(/(\r\n|\n|\r)/gm, '');
 // ipcMain
 
-const pathToConfig = path.join(__dirname, '/client-config.json');
-
+// const pathToConfig = path.join(__dirname, '/client-config.json');s
+console.log('>>>>>>>>>', app.getPath('userData'));
 ipcMain.on('onFetchConfig', (event, arg) => {
   try {
-    const config = fs.readFileSync(pathToConfig, 'utf8');
+    const config = fs.readFileSync(
+      path.join(app.getPath('userData'), 'client-config.json'),
+      'utf8'
+    );
     const response = {
       type: 'message',
       data: JSON.parse(config),
@@ -35,7 +38,10 @@ ipcMain.on('onFetchConfig', (event, arg) => {
 
 ipcMain.on('writeTokenToFS', (event, config) => {
   try {
-    fs.writeFileSync(pathToConfig, JSON.stringify(config));
+    fs.writeFileSync(
+      path.join(app.getPath('userData'), 'client-config.json'),
+      JSON.stringify(config)
+    );
 
     const response = {
       type: 'message',
