@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { useFela } from 'react-fela';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Modal, message, List, Layout } from 'antd';
+import { Modal, List, Layout, message } from 'antd';
 import React, { useEffect, useState, useMemo } from 'react';
 
 import * as paths from '../firebase-path';
