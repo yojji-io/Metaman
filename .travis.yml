@@ -1,11 +1,11 @@
 language: node_js
-node_js: -10.16.0
+node_js:
+  - 'node'
 cache: yarn
 
 install: -yarn install
 
 script: -yarn electron-pack
-
-deploy:
-  on:
-    branch: master
+# deploy:
+#   on:
+#     branch: master
