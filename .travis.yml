@@ -1,8 +1,9 @@
-warnings_are_errors: false
 language: node_js
 node_js:
   - 'stable'
 cache: yarn
+
+warnings_are_errors: false
 
 install:
   - yarn install
