@@ -27,7 +27,6 @@ yarn-error.log*
 firebase-debug.log
 firestore-debug.log
 
-src/config/firebase-client.config.js
 
 #ide
 /.idea
