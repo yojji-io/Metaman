@@ -64,7 +64,8 @@
     "redux-starter-kit": "^1.0.1",
     "reselect": "^4.0.0",
     "styled-components": "^4.4.1",
-    "type-is": "^1.6.18"
+    "type-is": "^1.6.18",
+    "yarn": "^1.21.1"
   },
   "homepage": "./",
   "main": "public/electron.js",
@@ -109,7 +110,7 @@
     "faker": "^4.1.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
-    "wait-on": "^3.3.0",
-    "uuid": "^3.3.3"
+    "uuid": "^3.3.3",
+    "wait-on": "^3.3.0"
   }
 }
