@@ -72,7 +72,7 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder build -m",
+    "electron-pack": "electron-builder build -l",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
